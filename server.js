@@ -9,11 +9,14 @@ const moviesRoute = require('./routes/movies')
 const PORT = process.env.PORT || 7000
 
 // cors setup
-app.use(
-  cors({
-    origin: 'https://screencritics.virile.vin',
-  })
-)
+
+if (process.env.PRODUCTION === 'yes') {
+  app.use(
+    cors({
+      origin: 'https://screencritics.virile.vin',
+    })
+  )
+}
 
 //routes
 app.use('/api/movies/', moviesRoute)
