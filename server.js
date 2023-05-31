@@ -11,7 +11,8 @@ const PORT = process.env.PORT || 7000
 // cors setup
 app.use(
   cors({
-    origin: ['http://screencritics.virile.vin'],
+    origin: 'https://screencritics.virile.vin',
+    AccessControlAllowOrigin: true,
   })
 )
 
