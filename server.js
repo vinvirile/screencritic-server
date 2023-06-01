@@ -7,21 +7,14 @@ const moviesRoute = require('./routes/movies')
 
 //base variables
 const PORT = process.env.PORT || 7000
+const API_URL = process.env.API_URL || 'http://localhost:5173'
 
 // cors setup
-if (process.env.PRODUCTION === 'yes') {
-  app.use(
-    cors({
-      origin: 'https://api.virile.vin',
-    })
-  )
-} else {
-  app.use(
-    cors({
-      origin: 'http://localhost:5173',
-    })
-  )
-}
+app.use(
+  cors({
+    origin: API_URL,
+  })
+)
 
 //routes
 app.use('/api/movies/', moviesRoute)
