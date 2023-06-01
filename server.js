@@ -7,12 +7,12 @@ const moviesRoute = require('./routes/movies')
 
 //base variables
 const PORT = process.env.PORT || 7000
-const API_URL = process.env.API_URL || 'http://localhost:5173'
+const ALLOWED_ORIGIN = process.env.ALLOWED_ORIGIN || 'http://localhost:5173'
 
 // cors setup
 app.use(
   cors({
-    origin: API_URL,
+    origin: ALLOWED_ORIGIN,
   })
 )
 
