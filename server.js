@@ -5,6 +5,7 @@ const passport = require('passport')
 const session = require('express-session')
 const connect = require('./db/connect')
 const app = express()
+const reviewsRoute = require('./routes/reviews')
 const moviesRoute = require('./routes/movies')
 const authRoute = require('./routes/auth')
 
@@ -38,8 +39,9 @@ app.use(passport.session())
 require('./config/passport')(passport)
 
 //routes
-app.use('/api/movies/', moviesRoute)
 app.use('/api/', authRoute)
+app.use('/api/movies/', moviesRoute)
+app.use('/api/reviews/', reviewsRoute)
 
 // Tries to connect to site's database. The server will not run if there is issues connecting to database.
 const start = async () => {
