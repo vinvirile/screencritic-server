@@ -1,8 +1,8 @@
-const movies = require('../models/Movies')
+const Movies = require('../models/Movies')
 
 const grabMovies = async (req, res) => {
   try {
-    const movieData = await movies.find({})
+    const movieData = await Movies.find({})
     return res.status(200).json({ movies: movieData })
   } catch (err) {
     console.error(err)
